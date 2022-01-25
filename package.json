@@ -10,11 +10,12 @@
     "webpack-dev-server": "^4.7.3",
     "wepack-cli": "^0.0.1-security"
   },
-  "name": "curso-platzi-react-avanzado",
-  "description": "**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev",
+  "name": "instagram-clone-react",
+  "description": "",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "acorn": "^8.7.0",
     "acorn-import-assertions": "^1.8.0",
     "ajv": "^6.12.6",
@@ -36,7 +37,9 @@
     "fast-json-stable-stringify": "^2.1.0",
     "glob-to-regexp": "^0.4.1",
     "graceful-fs": "^4.2.9",
+    "graphql": "^15.8.0",
     "has-flag": "^4.0.0",
+    "intersection-observer": "^0.12.0",
     "jest-worker": "^27.4.6",
     "json-parse-better-errors": "^1.0.2",
     "json-schema-traverse": "^0.4.1",
@@ -72,15 +75,7 @@
     "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
-  },
-  "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme"
+  "license": "ISC"
 }
