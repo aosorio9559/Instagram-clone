@@ -1,9 +1,9 @@
 import React from "react";
-import { ListOfCategories } from "./components/ListOfCategories/ListOfCategories";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from "./components/Logo/Logo";
-import { ListOfPhotoCardsContainer } from "./container/ListOfPhotoCardsContainer";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
 
 export const App = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,10 +16,12 @@ export const App = () => {
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (
-        <>
-          <ListOfCategories />
-          <ListOfPhotoCardsContainer categoryId={1} />
-        </>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pet/:categoryId" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
       )}
     </>
   );

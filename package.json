@@ -55,6 +55,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-router-dom": "^6.3.0",
     "safe-buffer": "^5.2.1",
     "schema-utils": "^3.1.1",
     "serialize-javascript": "^6.0.0",
@@ -72,7 +73,7 @@
   "scripts": {
     "build": "webpack",
     "vercel-build": "npm run build",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --history-api-fallback",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
