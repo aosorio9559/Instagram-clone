@@ -10,19 +10,17 @@ export const App = () => {
   const detailId = urlParams.get("detail");
 
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <Logo />
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pet/:categoryId" element={<Home />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pet/:categoryId" element={<Home />} />
+        </Routes>
       )}
-    </>
+    </BrowserRouter>
   );
 };
