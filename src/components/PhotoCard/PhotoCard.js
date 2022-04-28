@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Article, Button, Img, ImgWrapper } from "./PhotoCardStyles";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import React from "react";
+import { Article, Img, ImgWrapper } from "./PhotoCardStyles";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
+import { FavButton } from "../FavButton/FavButton";
+import { useToggleLikeMutation } from "../../container/ToggleLikeMutation";
 
 export const PhotoCard = ({
   id,
@@ -12,9 +13,14 @@ export const PhotoCard = ({
   const [show, element] = useNearScreen();
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
-
-  /** React interprets titlecased constants as a rendered component */
-  const Icon = liked ? MdFavorite : MdFavoriteBorder;
+  const { mutation, mutationLoading, mutationError } = useToggleLikeMutation();
+  const handleFavClick = () => {
+    !liked &&
+      mutation({
+        variables: { input: { id } },
+      });
+    setLiked(!liked);
+  };
 
   return (
     <Article ref={element}>
@@ -26,9 +32,7 @@ export const PhotoCard = ({
             </ImgWrapper>
           </a>
 
-          <Button onClick={() => setLiked(!liked)}>
-            <Icon size="32px" /> {likes} likes
-          </Button>
+          <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
       )}
     </Article>
