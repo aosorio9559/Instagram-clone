@@ -4,6 +4,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { FavButton } from "../FavButton/FavButton";
 import { useToggleLikeMutation } from "../../container/ToggleLikeMutation";
+import { Link } from "react-router-dom";
 
 export const PhotoCard = ({
   id,
@@ -26,11 +27,11 @@ export const PhotoCard = ({
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
 
           <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
