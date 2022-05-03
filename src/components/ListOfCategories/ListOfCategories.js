@@ -30,8 +30,6 @@ export const ListOfCategories = () => {
       setShowFixed(window.scrollY > 200);
     };
 
-    console.log({ showFixed });
-
     document.addEventListener("scroll", onScroll);
 
     /* Quitar el elemento para que cuando el componente se destruya, el navegador no siga escuchando el evento. */

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from "./components/Logo/Logo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -8,10 +8,11 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
-
-const isUserLogged = false;
+import { AppContext } from "./context/AppContext";
 
 export const App = () => {
+  const { isUserLogged } = useContext(AppContext);
+
   return (
     <BrowserRouter>
       <GlobalStyle />
