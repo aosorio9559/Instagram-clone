@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserForm } from "../components/UserForm/UserForm";
+import { AppContext } from "../context/AppContext";
 
 export const NotRegisteredUser = () => {
-  return <h1>NotRegisteredUser</h1>;
+  const { activateAuth } = useContext(AppContext);
+
+  return <UserForm onSubmit={activateAuth} />;
 };
