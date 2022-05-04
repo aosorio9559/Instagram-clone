@@ -14,7 +14,7 @@ export const PhotoCard = ({
   const [show, element] = useNearScreen();
   const key = `like-${id}`;
   const [liked, setLiked] = useLocalStorage(key, false);
-  const { mutation, mutationLoading, mutationError } = useToggleLikeMutation();
+  const { mutation } = useToggleLikeMutation();
   const handleFavClick = () => {
     !liked &&
       mutation({
