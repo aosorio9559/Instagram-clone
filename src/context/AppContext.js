@@ -12,8 +12,13 @@ const AppProvider = ({ children }) => {
     window.sessionStorage.setItem("token", token);
   };
 
+  const removeAuth = () => {
+    setIsUserLogged(false);
+    window.sessionStorage.removeItem("token");
+  };
+
   return (
-    <AppContext.Provider value={{ isUserLogged, activateAuth }}>
+    <AppContext.Provider value={{ isUserLogged, activateAuth, removeAuth }}>
       {children}
     </AppContext.Provider>
   );
