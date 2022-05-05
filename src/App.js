@@ -12,7 +12,7 @@ import { AppContext } from "./context/AppContext";
 import { NotFound } from "./pages/NotFound";
 
 export const App = () => {
-  const { isUserLogged } = useContext(AppContext);
+  const { isUserLoggedIn } = useContext(AppContext);
 
   return (
     <BrowserRouter>
@@ -25,18 +25,22 @@ export const App = () => {
         <Route
           exact
           path="/favs"
-          element={isUserLogged ? <Favs /> : <Navigate replace to="/login" />}
+          element={isUserLoggedIn ? <Favs /> : <Navigate replace to="/login" />}
         />
         <Route
           exact
           path="/user"
-          element={isUserLogged ? <User /> : <Navigate replace to="/login" />}
+          element={isUserLoggedIn ? <User /> : <Navigate replace to="/login" />}
         />
         <Route
           exact
           path="/login"
           element={
-            !isUserLogged ? <NotRegisteredUser /> : <Navigate replace to="/" />
+            !isUserLoggedIn ? (
+              <NotRegisteredUser />
+            ) : (
+              <Navigate replace to="/" />
+            )
           }
         />
         <Route path="*" element={<NotFound />} />

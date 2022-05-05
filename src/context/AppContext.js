@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 const AppContext = createContext(null);
 
 const AppProvider = ({ children }) => {
-  const [isUserLogged, setIsUserLogged] = useState(() => {
+  const [isUserLoggedIn, setIsUserLogged] = useState(() => {
     return window.sessionStorage.getItem("token");
   });
 
@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ isUserLogged, activateAuth, removeAuth }}>
+    <AppContext.Provider value={{ isUserLoggedIn, activateAuth, removeAuth }}>
       {children}
     </AppContext.Provider>
   );
