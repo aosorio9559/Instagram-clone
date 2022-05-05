@@ -16,7 +16,6 @@ const GET_SINGLE_PHOTO = gql`
 `;
 
 export const PhotoCardWithQuery = ({ id }) => {
-  console.log(id);
   const { loading, error, data } = useQuery(GET_SINGLE_PHOTO, {
     variables: { id },
   });
