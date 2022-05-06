@@ -4,6 +4,7 @@ import { useNearScreen } from "../../hooks/useNearScreen";
 import { FavButton } from "../FavButton/FavButton";
 import { useToggleLikeMutation } from "../../container/ToggleLikeMutation";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const PhotoCard = ({
   id,
@@ -35,4 +36,21 @@ export const PhotoCard = ({
       )}
     </Article>
   );
+};
+
+PhotoCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  src: PropTypes.string,
+  likes: (props, propName) => {
+    const propValue = props[propName];
+
+    if (propValue === undefined) {
+      return new Error(`${propName} value must be defined`);
+    }
+
+    if (propValue < 0) {
+      return new Error("Likes can't be less than zero");
+    }
+  },
 };

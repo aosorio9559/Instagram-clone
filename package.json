@@ -50,6 +50,7 @@
     "neo-async": "^2.6.2",
     "node-releases": "^2.0.1",
     "picocolors": "^1.0.0",
+    "prop-types": "^15.8.1",
     "punycode": "^2.1.1",
     "randombytes": "^2.1.0",
     "react": "^17.0.2",
