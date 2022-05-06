@@ -19,8 +19,8 @@ module.exports = {
       description: "Your pet app",
       background_color: "#fff",
       theme_color: "#fff",
-      // start_url: "/",
-      // scope: "/",
+      start_url: "/",
+      scope: "/",
       icons: [
         {
           src: path.resolve("src/assets/icon.png"),
