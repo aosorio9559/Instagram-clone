@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "petgram-aosorio9559",
   "builds": [
     {
       "use": "@vercel/static-build",
